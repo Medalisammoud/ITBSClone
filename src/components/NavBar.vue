@@ -1,10 +1,16 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light opacity-75 ">
+    <nav
+      class="navbar navbar-expand-lg fixed-top navbar-light bg-light opacity-75"
+    >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <router-link to="/">
+          <img src="../assets/LogoFac1.png" alt="logo" class="taille" />
+        </router-link>
+
+        <!-- <a class="navbar-brand" href="# ">
           <img src="../assets/LogoFac1.png" alt="logo" width="100px" />
-        </a>
+        </a> -->
         <button
           class="navbar-toggler"
           type="button"
@@ -29,9 +35,19 @@
                 ITBS
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> Notre Ecole</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">Etudier en Tunisie</a>
+                  <div class="dropdown-item">
+                    <router-link to="/notre-ecole" class="router">
+                      Notre Ecole
+                    </router-link>
+                  </div>
+                </li>
+                <li>
+                  <div class="dropdown-item">
+                    <router-link to="/stage" class="router">
+                      Stage et insertion professionnelle
+                    </router-link>
+                  </div>
                 </li>
               </ul>
             </li>
@@ -45,9 +61,11 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Cycle Préparatoire Intégré en Informatique</a
-                  >
+                  <div class="dropdown-item">
+                    <router-link to="/preparatoire" class="router">
+                      Cycle Préparatoire Intégré en Informatique
+                    </router-link>
+                  </div>
                 </li>
                 <li>
                   <a class="dropdown-item" href="#">
@@ -96,28 +114,27 @@
         </div>
 
         <div class="d">
-          <button class="btn btn-outline-warning " style="color: black" >
-
-  <a href="#" class="a">
-                    <i class="fa-solid fa-user " style="color: black"></i> 
-  </a>
-  <span>Vous n'ete pas connecté <br/> veuillez connecter svp</span>    
+          <button class="btn btn-outline-warning" style="color: black">
+            <a href="#" class="a">
+              <i class="fa-solid fa-user" style="color: black"></i>
+            </a>
+            <span
+              >Vous n'ete pas connecté <br />
+              veuillez connecter svp</span
+            >
           </button>
-</div>
-
+        </div>
 
         <!-- navbar-collapse.// -->
       </div>
       <!-- container-fluid.// -->
     </nav>
-
-    
   </div>
 </template>
 
 <script>
 export default {
-  name: "Nav-Bar",
+  name: "NavBar",
   props: {
     msg: String,
   },
@@ -145,16 +162,25 @@ export default {
   background-color: #ffc000;
   color: white;
 }
-
-.d{
-
-  display: table;
-  
+.router:hover {
+  color: white;
+}
+.router {
+  text-decoration: none;
+  color: black;
 }
 
-.a, span {
+.d {
+  display: table;
+}
+
+.a,
+span {
   display: table-cell;
   vertical-align: middle;
   padding: 3px;
+}
+.taille {
+  width: 100px;
 }
 </style>
